@@ -14,8 +14,17 @@ if(array_key_exists("awal", $_POST) && array_key_exists("akhir", $_POST)) {
     // cek logic b;
     // jalankan d;
     // eksekusi c;
-    for($counter=$_POST["awal"]; $counter <= $_POST["akhir"]; $counter++) {
-        echo $counter . "<br>";
+    if(array_key_exists("kelipatan", $_POST)) {
+        $angka = $_POST["awal"];
+        while($angka <= $_POST["akhir"]) {
+            if($angka % $_POST["kelipatan"] == 0) {
+                echo $angka . "<br>";
+            }
+        }
+    } else {
+        for($counter=$_POST["awal"]; $counter <= $_POST["akhir"]; $counter++) {
+            echo $counter . "<br>";
+        }
     }
 } else {
     echo "Maaf, nilai awal dan akhir belum ditentukan";
