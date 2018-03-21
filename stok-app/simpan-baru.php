@@ -19,7 +19,7 @@ $query = "insert into stok_barang(kode, nama_barang, stok) " . "values(" . $_POS
 
 if($koneksi->query($query) === true) {
     echo "<br> Data " . $_POST["namaBarang"] . " berhasil disimpan".
-    '<a href="main.php">Lihat Data</a>';
+    '<a href="main.php"> Lihat Data</a>';
 } else {
     echo "<br> Data GAGAL disimpan";
 }
