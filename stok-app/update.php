@@ -4,6 +4,10 @@ include "koneksi.php";
 $koneksiObj = new Koneksi();
 $koneksi = $koneksiObj->getKoneksi();
 
+$kode = $_POST['kode'];
+$namaBarang = $_POST['namaBarang'];
+$stok = $_POST['stok'];
+
 if($koneksi->connect_error) {
     echo "Gagal koneksi : " . $koneksi->connect_error;
 } else {
@@ -14,7 +18,7 @@ if($koneksi->connect_error) {
 // echo "NAMA BARANG : " . $_POST["namaBarang"];
 // echo "STOK : " . $_POST["stok"];
 
-$query = "update stok_barang set nama_barang=$_POST['namaBarang'], stok=$_POST['stok'] where kode=$_POST['kode']";
+$query = "update stok_barang set nama_barang = '$namaBarang', stok = '$stok' where kode = '$kode'";
 
 if($koneksi->query($query) === true) {
     echo "<br> Data " . $_POST["namaBarang"] . " berhasil diupdate".
